@@ -12,6 +12,7 @@ git clone https://github.com/eric-venti-seeds/Sphere-Light-Render-ComfyUI.git
 
 Restart ComfyUI. No additional Python dependencies for the core node.
 
+## Quick start
 
 Download the Lora from here:
 
