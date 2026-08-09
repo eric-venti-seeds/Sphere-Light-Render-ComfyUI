@@ -1,0 +1,4 @@
+__pycache__/
+*.py[cod]
+tools/_cache/
+.playwright-mcp/

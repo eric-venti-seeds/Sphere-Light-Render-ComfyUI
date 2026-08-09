@@ -1,0 +1,14 @@
+[project]
+name = "sphere-light-render-sundial-comfyui"
+description = "Renders a lit reference sphere (manual sun angles, the real sun for a city/coordinates + date/time, or a photo's EXIF) to steer the Sun-Direction LoRA for Flux 2 Klein 9B."
+version = "1.0.0"
+requires-python = ">=3.9"
+dependencies = []
+license = { file = "LICENSE" }
+
+[project.urls]
+Repository = "https://github.com/ChristopherConnock/Sphere-Light-Render-Sundial-ComfyUI"
+
+[tool.comfy]
+PublisherId = "christopherconnock"
+DisplayName = "Sphere Light Render (Sundial)"

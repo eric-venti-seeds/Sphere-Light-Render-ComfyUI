@@ -1,0 +1,30 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  js:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22   # node --test glob patterns need >= 21
+      - run: npm test
+
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # torch and ComfyUI's folder_paths are stubbed by the scripts themselves.
+      - run: pip install numpy pillow
+      - run: python tools/test_decode.py
+      - run: python tools/test_new_nodes.py
+      - run: python tools/test_photo_exif.py
+      - run: python tools/test_comfy_load.py
+      - run: python tools/verify_cities.py
