@@ -1,13 +1,16 @@
 # Changelog
 
-This project is an independently maintained continuation of
-[eric-venti-seeds/Sphere-Light-Render-ComfyUI](https://github.com/eric-venti-seeds/Sphere-Light-Render-ComfyUI).
-The original concept, node, and the companion
-[Sun-Direction LoRA](https://huggingface.co/eric-venti-seeds/Sun-Direction-Lora-Flux2Klein9B)
+The original concept, node, and the companion Sun-Direction LoRAs
+([9B](https://huggingface.co/eric-venti-seeds/Sun-Direction-Lora-Flux2Klein9B),
+[4B](https://huggingface.co/eric-venti-seeds/Sun-Direction-Lora-Flux2Klein4B))
 are the work of **eric-venti-seeds** — all credit for the idea and the original
-implementation goes to them.
+implementation goes to them. The entries below track the sun-position,
+location, EXIF and graph-driven work contributed by **Christopher Connock**,
+developed on a fork and merged into this repository in
+[#4](https://github.com/eric-venti-seeds/Sphere-Light-Render-ComfyUI/pull/4).
+See [NOTICE.md](NOTICE.md) for authorship and licensing.
 
-## The original (fork point `6e40c7a`, 2026-06-29)
+## The original (`6e40c7a`, 2026-06-29)
 
 Three files: a single `SphereLightNode` (Python) with `rotation` / `elevation` /
 `intensity` sliders and a hidden `render_b64` string, plus `js/sphere_widget.js`
@@ -15,7 +18,7 @@ Three files: a single `SphereLightNode` (Python) with `rotation` / `elevation` /
 node and passed the image to the server as base64. Output: a 1024×1024 IMAGE
 reference for the Sun-Direction LoRA.
 
-Everything below is what this fork changed, in order.
+Everything below is what those contributions changed, in order.
 
 ## 2026-07-05 — Hardening
 
@@ -132,6 +135,13 @@ Everything below is what this fork changed, in order.
   (`Date.UTC` legacy behavior; the nodes advertise years 1–9999).
 - `MAX_IMAGE_SIDE` tightened 8192 → 2048 (the browser renders 512²; a 8192²
   decode is ~192 MiB — a decompression bomb, not a legitimate render).
+
+## 2026-08-09 — Merged into the main repository
+
+- Everything above was merged into
+  [eric-venti-seeds/Sphere-Light-Render-ComfyUI](https://github.com/eric-venti-seeds/Sphere-Light-Render-ComfyUI)
+  via [#4](https://github.com/eric-venti-seeds/Sphere-Light-Render-ComfyUI/pull/4).
+  Development continues there; the whole project is MIT licensed.
 
 ## Fixes along the way
 

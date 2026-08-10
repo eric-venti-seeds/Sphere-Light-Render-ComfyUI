@@ -1,14 +1,16 @@
-# Sphere-Light-Render-Sundial-ComfyUI
-Widget to tell Flux 2 Klein 9B where the sun light comes from — set it by hand,
+# Sphere-Light-Render-ComfyUI
+Widget to tell Flux 2 Klein 9B and 4B where the sun light comes from — set it by hand,
 from a real place and time, or straight from a photo's EXIF. To be used with
 Sun_direction_Lora for Flux2Klein.
 
-> **Origin & credit** — this is an independently maintained continuation of
-> [Sphere-Light-Render-ComfyUI](https://github.com/eric-venti-seeds/Sphere-Light-Render-ComfyUI)
-> by [eric-venti-seeds](https://github.com/eric-venti-seeds), who created the
-> original node and the companion Sun-Direction LoRA. Everything this fork
-> changed is listed in [CHANGELOG.md](CHANGELOG.md); licensing details are in
-> [NOTICE.md](NOTICE.md).
+> **Credits** — the original node, the concept, and the companion Sun-Direction
+> LoRA are by [eric-venti-seeds](https://github.com/eric-venti-seeds). The sun
+> position, city/coordinates, EXIF and graph-driven features described below
+> were contributed by
+> [Christopher Connock](https://github.com/ChristopherConnock) and merged in
+> [#4](https://github.com/eric-venti-seeds/Sphere-Light-Render-ComfyUI/pull/4).
+> [CHANGELOG.md](CHANGELOG.md) lists them in order; authorship and licensing
+> are in [NOTICE.md](NOTICE.md).
 
 ## Install
 
@@ -16,17 +18,17 @@ Clone into your `ComfyUI/custom_nodes/`:
 
 ```bash
 cd ComfyUI/custom_nodes/
-git clone https://github.com/ChristopherConnock/Sphere-Light-Render-Sundial-ComfyUI.git
+git clone https://github.com/eric-venti-seeds/Sphere-Light-Render-ComfyUI.git
 ```
 
 Restart ComfyUI. No additional Python dependencies for the core node.
 
 ## Quick start
 
-Download the Lora from here:
+Download the Loras from here:
 
 https://huggingface.co/eric-venti-seeds/Sun-Direction-Lora-Flux2Klein9B
-
+https://huggingface.co/eric-venti-seeds/Sun-Direction-Lora-Flux2Klein4B
 
 
 The Node renders a 1024 x 1024 image as reference for the LoRA to understand where the light comes from.
@@ -131,15 +133,18 @@ drives Sun (Coordinates), whose widgets mirror the driven values:
 
 ## License & credits
 
-- Original concept and implementation by
-  [eric-venti-seeds](https://github.com/eric-venti-seeds)
-  ([original repo](https://github.com/eric-venti-seeds/Sphere-Light-Render-ComfyUI)) —
-  see [NOTICE.md](NOTICE.md) for how this fork relates to it.
-- This fork's contributions are released under the [MIT License](LICENSE).
+- Original concept and node implementation, and the companion LoRAs:
+  [Sun-Direction LoRA 9B](https://huggingface.co/eric-venti-seeds/Sun-Direction-Lora-Flux2Klein9B) and [Sun-Direction LoRA 4B](https://huggingface.co/eric-venti-seeds/Sun-Direction-Lora-Flux2Klein4B),
+  by [eric-venti-seeds](https://github.com/eric-venti-seeds).
+- Sun position, city/coordinates, EXIF and graph-driven inputs — including the
+  solar and timezone math, the city dataset, the Photo (EXIF) node and the test
+  suite — by [Christopher Connock](https://github.com/ChristopherConnock).
+- Released under the [MIT License](LICENSE); [NOTICE.md](NOTICE.md) records who
+  wrote what and the third-party terms.
 - City data derived from [GeoNames](https://www.geonames.org/)
   ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
 - [Three.js](https://threejs.org/) r128 (MIT) is vendored as `js/three.module.js`.
 - The demo photo in the README (`docs/media/penn-soccer-pickup-shadows.jpg`)
-  was taken by the repo author — chosen because its EXIF carries GPS
+  was taken by Christopher Connock — chosen because its EXIF carries GPS
   coordinates, a compass heading, and the capture time, and its low winter sun
   casts clear shadows to compare against.

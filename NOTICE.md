@@ -1,27 +1,29 @@
 # NOTICE
 
-This repository is an independently maintained continuation of
-[eric-venti-seeds/Sphere-Light-Render-ComfyUI](https://github.com/eric-venti-seeds/Sphere-Light-Render-ComfyUI).
-The original concept, the original node implementation, and the companion
-[Sun-Direction LoRA](https://huggingface.co/eric-venti-seeds/Sun-Direction-Lora-Flux2Klein9B)
-are the work of **eric-venti-seeds**.
+Sphere-Light-Render-ComfyUI is released under the [MIT License](LICENSE). This
+file records who wrote what, and the terms of the third-party data and
+libraries the project bundles.
 
-## License status
+## Authorship
 
-- **Original upstream code** (everything up to and including upstream commit
-  `6e40c7a`, 2026-06-29): the upstream repository does not currently declare a
-  license, which by default means all rights are reserved by its author. This
-  fork exists and is shared on GitHub under the fork provisions of the
-  [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#5-license-grant-to-other-users).
-  A request to add an open-source license is open upstream
-  ([issue #3](https://github.com/eric-venti-seeds/Sphere-Light-Render-ComfyUI/issues/3));
-  if one is granted, this notice will be updated to reflect it.
-- **This fork's contributions** (all changes after `6e40c7a` — see
-  [CHANGELOG.md](CHANGELOG.md) for the full list): released under the
-  [MIT License](LICENSE), copyright Christopher Connock.
-- The `license` field in `pyproject.toml` points at that MIT LICENSE and, like
-  it, covers this fork's contributions only — any upstream-derived portions
-  remain governed by the status described above.
+- **[eric-venti-seeds](https://github.com/eric-venti-seeds)** — the original
+  concept and implementation (everything up to and including commit `6e40c7a`,
+  2026-06-29): the `SphereLightNode` with manual `rotation` / `elevation` /
+  `intensity`, and the in-node Three.js sphere preview whose render is passed
+  to the server as the LoRA's reference image.
+- **[Christopher Connock](https://github.com/ChristopherConnock)** — the
+  sun-position, location, EXIF and graph-driven feature set: NOAA solar
+  position math, DST-aware wall-time→UTC conversion, the bundled GeoNames city
+  lookup, the split Manual / Sun (City) / Sun (Coordinates) / Photo (EXIF)
+  nodes, the browser-side EXIF parser, graph-driven inputs, and the test suite
+  and CI. Developed as
+  [Sphere-Light-Render-Sundial-ComfyUI](https://github.com/ChristopherConnock/Sphere-Light-Render-Sundial-ComfyUI)
+  and merged here in
+  [#4](https://github.com/eric-venti-seeds/Sphere-Light-Render-ComfyUI/pull/4)
+  (2026-08-09). [CHANGELOG.md](CHANGELOG.md) lists those changes in order.
+
+Both authors' contributions are covered by the MIT License in
+[LICENSE](LICENSE).
 
 ## Third-party components
 
@@ -31,3 +33,6 @@ are the work of **eric-venti-seeds**.
 - **[GeoNames](https://www.geonames.org/)** geographical data (`cities15000`,
   `admin1CodesASCII`, `countryInfo`), used to build `js/cities.json` — licensed
   under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/).
+- The demo photo `docs/media/penn-soccer-pickup-shadows.jpg`, used in the
+  README to illustrate the EXIF workflow — photographed by Christopher Connock
+  and included under the repository's MIT License.
